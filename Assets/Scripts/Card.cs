@@ -1,19 +1,41 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[System.Serializable]
 
-[CreateAssetMenu(fileName = "New Card", menuName = "Card")]
-public class Card : ScriptableObject
+public class Card
 {
-   public string cardName;
-   public string cardFaction;
-   public string cardType;
-   public string cardAttackType;
-   public string cardDescription;
+   //public int cardPowerHero;
+   public int id;
    public int cardPower;
-   public Sprite artwork;
-   public Sprite cardAttackTypeIcon;
-   public Sprite cardTypeIcon;
-   public Sprite cardFactionIcon;
-   public bool cardEffect;
+   public int cardAttackType;
+   public string cardName;
+   public string cardDescription;
+   public string cardType;
+   public string cardEffect;
+   public Sprite cardArtwork;
+   public Sprite cardAttackIcon;
+   public Sprite cardEffectIcon;
+   //public bool cardEffect;
+
+
+   public Card()
+   {
+
+   }
+
+   public Card(int Id, string Name, int Power, int AttackType, string Description, string Type, string Effect, Sprite Artwork, Sprite AttackIcon, Sprite EffectIcon)
+   {
+    id = Id;
+    cardName = Name;
+    cardPower = Power;
+    cardAttackType = AttackType;
+    cardDescription = Description;
+    cardType = Type;
+    cardEffect = Effect;
+    cardArtwork = Artwork;
+    cardAttackIcon = AttackIcon;
+    cardEffectIcon = EffectIcon;
+   }
 }
