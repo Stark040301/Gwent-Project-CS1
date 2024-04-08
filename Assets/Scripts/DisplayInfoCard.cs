@@ -33,10 +33,7 @@ public class DisplayInfoCard : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(CardDatabase.cardList.Count);
-        Debug.Log(displayInfoCard.Count);
         displayInfoCard.Add(CardDatabase.cardList[displayId]);
-        Debug.Log(displayInfoCard.Count);
     }
 
     void Update()

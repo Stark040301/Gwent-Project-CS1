@@ -14,7 +14,9 @@ public class FlipCoin : MonoBehaviour
     public Sprite[] sides;
     public GameObject _cointoss;
     public GameObject _firstPlayer;
-    public GameObject _backGround;
+    public GameObject _hand1;
+    public GameObject _hand2;
+    public GameObject _coin;
     public TMP_Text _firstPlayerInfo;
     public int side;
 
@@ -63,16 +65,19 @@ public class FlipCoin : MonoBehaviour
         }
         else
         {
-             _firstPlayerInfo.SetText("El Jugador 2 juega primero. ¡¡Buena suerte!!\n¡¡Valar Morghulis!!");
+            _firstPlayerInfo.SetText("El Jugador 2 juega primero. ¡¡Buena suerte!!\n¡¡Valar Morghulis!!");
         }
         _firstPlayer.SetActive(true);
-    }
-    /*IEnumerator Activate(float endcoinfase)
-    {
-        yield return new WaitForSeconds(endcoinfase);
+        yield return new WaitForSeconds(delay);
+        _coin.SetActive(false);
         if (side == 0)
         {
-            _backGround.SetActive(true)
+            _hand1.SetActive(true);
         }
-    }*/
+        else
+        {
+            
+            _hand2.SetActive(true);
+        }
+    }
 }
