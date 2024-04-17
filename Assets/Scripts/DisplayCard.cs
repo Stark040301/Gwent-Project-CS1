@@ -25,10 +25,7 @@ public class DisplayCard : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(CardDatabase.cardList.Count);
-        Debug.Log(displayCard.Count);
         displayCard.Add(CardDatabase.cardList[displayId]);
-        Debug.Log(displayCard.Count);
     }
 
     void Update()
