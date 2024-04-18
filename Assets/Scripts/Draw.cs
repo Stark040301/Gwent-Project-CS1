@@ -8,7 +8,7 @@ public class Draw : MonoBehaviour
     public Transform _hand1;
     public Transform _hand2;
     public Transform _reDraw1;
-    public Transform _reDraw2;    
+    public Transform _reDraw2;  
     public GameObject _heroCard;
     public GameObject _silverCard;
     public GameObject _specialCard;
@@ -45,32 +45,32 @@ public class Draw : MonoBehaviour
             if (_hand1List[i].cardType == "Héroe")
             {
                 h1++;
-                Instantiate(_heroCard, _reDraw1).GetComponent<DisplayCard>().displayId = _hand1List[i].id;
+                Instantiate(_heroCard, _hand1).GetComponent<DisplayCard>().displayId = _hand1List[i].id;
             }
             else if (_hand1List[i].cardType == "Plata")
             {
                 p1++;
-                Instantiate(_silverCard, _reDraw1).GetComponent<DisplayCard>().displayId = _hand1List[i].id;
+                Instantiate(_silverCard, _hand1).GetComponent<DisplayCard>().displayId = _hand1List[i].id;
             }
             else
             {
                 s1++;
-                Instantiate(_specialCard, _reDraw1).GetComponent<DisplayCard>().displayId = _hand1List[i].id;
+                Instantiate(_specialCard, _hand1).GetComponent<DisplayCard>().displayId = _hand1List[i].id;
             }
             if (_hand2List[i].cardType == "Héroe")
             {
                 h2++;
-                Instantiate(_heroCard, _reDraw2).GetComponent<DisplayCard>().displayId = _hand2List[i].id;
+                Instantiate(_heroCard, _hand2).GetComponent<DisplayCard>().displayId = _hand2List[i].id;
             }
             else if (_hand2List[i].cardType == "Plata")
             {
                 p2++;
-                Instantiate(_silverCard, _reDraw2).GetComponent<DisplayCard>().displayId = _hand2List[i].id;
+                Instantiate(_silverCard, _hand2).GetComponent<DisplayCard>().displayId = _hand2List[i].id;
             }
             else
             {
                 s2++;
-                Instantiate(_specialCard, _reDraw2).GetComponent<DisplayCard>().displayId = _hand2List[i].id;
+                Instantiate(_specialCard, _hand2).GetComponent<DisplayCard>().displayId = _hand2List[i].id;
             }
         }
         Debug.Log("Hero1: " + h1);
@@ -136,7 +136,7 @@ public class Draw : MonoBehaviour
             Instantiate(_specialCard, _hand2).GetComponent<DisplayCard>().displayId = _hand2List[indexNew].id;            
         }
     }
-    public void P1ReDraw()
+    /*public void P1ReDraw()
     {
         int index1 = Random.Range(0, DeckScript.deck1.Count - 1);
         _hand1List.Add(DeckScript.deck1[index1]);
@@ -162,5 +162,5 @@ public class Draw : MonoBehaviour
                 _hand1List.RemoveAt(i);
             }
         }
-    }
+    }*/
 }

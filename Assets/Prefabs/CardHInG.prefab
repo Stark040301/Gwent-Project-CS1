@@ -208,6 +208,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3834825811168513648}
+        m_TargetAssemblyTypeName: CardLogic, Assembly-CSharp
+        m_MethodName: PlayCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2806267690999609070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,8 +399,9 @@ GameObject:
   - component: {fileID: 8590300794273832744}
   - component: {fileID: 3871111086913606944}
   - component: {fileID: 6992779869627894615}
+  - component: {fileID: 3834825811168513648}
   m_Layer: 5
-  m_Name: CardH
+  m_Name: CardHInG
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -401,7 +414,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8364075524457801648}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.34341693}
   m_LocalScale: {x: 0.1, y: 0.12, z: 0.15}
   m_ConstrainProportionsScale: 0
@@ -514,6 +527,28 @@ MonoBehaviour:
   _card: {fileID: 8364075524457801648}
   _deck: {fileID: 0}
   _collection: {fileID: 0}
+--- !u!114 &3834825811168513648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364075524457801648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc712f3047040f04b9036c678dd2e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardToPlay: {fileID: 8364075524457801648}
+  _hand1: {fileID: 0}
+  _hand2: {fileID: 0}
+  _weather: {fileID: 0}
+  _melee1: {fileID: 0}
+  _ranged1: {fileID: 0}
+  _siege1: {fileID: 0}
+  _melee2: {fileID: 0}
+  _ranged2: {fileID: 0}
+  _siege2: {fileID: 0}
 --- !u!1 &9026249081797206750
 GameObject:
   m_ObjectHideFlags: 0

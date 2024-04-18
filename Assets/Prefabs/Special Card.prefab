@@ -521,6 +521,9 @@ GameObject:
   - component: {fileID: 3304530492931085850}
   - component: {fileID: 2979495046762971770}
   - component: {fileID: 1134383594703071589}
+  - component: {fileID: 725230949143825939}
+  - component: {fileID: 508395766863068325}
+  - component: {fileID: 891737032957642327}
   m_Layer: 5
   m_Name: Special Card
   m_TagString: Card
@@ -614,7 +617,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e65c65cc2f55f67af99c7c7164dd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Selection: 1
+  _factionNorth: {fileID: 0}
+  _factionCrown: {fileID: 0}
+  _factionTargaryen: {fileID: 0}
+  _factionGreyjoy: {fileID: 0}
+  _factionWatch: {fileID: 0}
+  _factionBaratheon: {fileID: 0}
+  _playerStatus: {fileID: 0}
   _card: {fileID: 8364075524457801648}
   _deck: {fileID: 0}
   _collection: {fileID: 0}
@@ -642,3 +651,80 @@ MonoBehaviour:
   cardArtworkImage: {fileID: 634076937575455753}
   cardAttackTypeImage: {fileID: 1127388412358671298}
   cardEffectIconImage: {fileID: 9005723665058583310}
+--- !u!61 &725230949143825939
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364075524457801648}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &508395766863068325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364075524457801648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f055ef4aebfb183b1a68d56b66dfa0bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &891737032957642327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364075524457801648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc712f3047040f04b9036c678dd2e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cardToPlay: {fileID: 8364075524457801648}
+  _weather: {fileID: 0}
+  _melee1: {fileID: 0}
+  _ranged1: {fileID: 0}
+  _siege1: {fileID: 0}
+  _melee2: {fileID: 0}
+  _ranged2: {fileID: 0}
+  _siege2: {fileID: 0}
