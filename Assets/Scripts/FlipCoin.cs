@@ -11,6 +11,8 @@ using TMPro;
 public class FlipCoin : MonoBehaviour
 {
     public GameObject _background;
+    public GameObject _RButton1;
+    public GameObject _RButton2;
     public GameObject _m1button;
     public GameObject _bm1button;
     public GameObject _r1button;
@@ -86,11 +88,13 @@ public class FlipCoin : MonoBehaviour
         if (side == 0)
         {
             _hand2.SetActive(false);
+            _RButton2.SetActive(false);
         }
         else
         {
-            
             _hand1.SetActive(false);
+            _RButton1.SetActive(false);
+
         }
         _m1button.SetActive(false);
         _bm1button.SetActive(false);

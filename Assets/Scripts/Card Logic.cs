@@ -6,6 +6,9 @@ public class CardLogic : MonoBehaviour
 {
     //public static GameObject cardToButton;
     public static GameObject cardToButton;
+    public GameObject _rgo;
+    public GameObject _RButton1;
+    public GameObject _RButton2;
     public GameObject _cardToPlay;
     public GameObject _m1button;
     public GameObject _bm1button;
@@ -36,10 +39,13 @@ public class CardLogic : MonoBehaviour
     public Transform _sbuff2;
     
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
+        _rgo = GameObject.Find("RGO");
         _hand1 = GameObject.Find("Hand1").transform;
         _hand2 = GameObject.Find("Hand2").transform;
+        _RButton1 = GameObject.Find("PassRound1");
+        _RButton2 = GameObject.Find("PassRound2");
         _weather = GameObject.Find("WeatherSlot").transform;
         _melee1 = GameObject.Find("Melee1").transform;
         _mbuff1 = GameObject.Find("MBuff1").transform;
@@ -74,20 +80,43 @@ public class CardLogic : MonoBehaviour
 
     public void PlayCard()
     {
+        _m1button.SetActive(false);
+        _bm1button.SetActive(false);
+        _r1button.SetActive(false);
+        _br1button.SetActive(false);
+        _s1button.SetActive(false);
+        _bs1button.SetActive(false);
+        _m2button.SetActive(false);
+        _bm2button.SetActive(false);
+        _r2button.SetActive(false);
+        _br2button.SetActive(false);
+        _s2button.SetActive(false);
+        _bs2button.SetActive(false);
         cardToButton = _cardToPlay;
         if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 1)
         {
             if (_cardToPlay.transform.parent == _hand1)
             {
                 _cardToPlay.transform.parent = _melee1;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(false);
+                _RButton1.SetActive(false);
                 _hand2.gameObject.SetActive(true);
+                _RButton2.SetActive(true);
+                }
+                
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
                 _cardToPlay.transform.parent = _melee2;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(true);
-                _hand2.gameObject.SetActive(false);
+                _RButton1.SetActive(true);
+                _hand2.gameObject.SetActive(false); 
+                _RButton2.SetActive(false);
+                }
             }
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 2)
@@ -95,14 +124,24 @@ public class CardLogic : MonoBehaviour
             if (_cardToPlay.transform.parent == _hand1)
             {
                 _cardToPlay.transform.parent = _ranged1;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(false);
-                _hand2.gameObject.SetActive(true);
+                _RButton1.SetActive(false);
+                _hand2.gameObject.SetActive(true); 
+                _RButton2.SetActive(true);
+                }
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
                 _cardToPlay.transform.parent = _ranged2;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(true);
-                _hand2.gameObject.SetActive(false);
+                _RButton1.SetActive(true);
+                _hand2.gameObject.SetActive(false); 
+                _RButton2.SetActive(false);
+                }
             }
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 3)
@@ -110,14 +149,24 @@ public class CardLogic : MonoBehaviour
             if (_cardToPlay.transform.parent == _hand1)
             {
                 _cardToPlay.transform.parent = _siege1;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(false);
-                _hand2.gameObject.SetActive(true);
+                _RButton1.SetActive(false);
+                _hand2.gameObject.SetActive(true); 
+                _RButton2.SetActive(true);
+                }
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
                 _cardToPlay.transform.parent = _siege2;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(true);
-                _hand2.gameObject.SetActive(false);
+                _RButton1.SetActive(true);
+                _hand2.gameObject.SetActive(false); 
+                _RButton2.SetActive(false);
+                }
             }
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 12)
@@ -153,14 +202,24 @@ public class CardLogic : MonoBehaviour
             if (_cardToPlay.transform.parent == _hand1)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(false);
-                _hand2.gameObject.SetActive(true);
+                _RButton1.SetActive(false);
+                _hand2.gameObject.SetActive(true); 
+                _RButton2.SetActive(true);
+                }
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(true);
-                _hand2.gameObject.SetActive(false);
+                _RButton1.SetActive(true);
+                _hand2.gameObject.SetActive(false); 
+                _RButton2.SetActive(false);
+                }
             }
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 10)
@@ -168,14 +227,24 @@ public class CardLogic : MonoBehaviour
             if (_cardToPlay.transform.parent == _hand1)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(false);
-                _hand2.gameObject.SetActive(true);
+                _RButton1.SetActive(false);
+                _hand2.gameObject.SetActive(true); 
+                _RButton2.SetActive(true);
+                }
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(true);
-                _hand2.gameObject.SetActive(false);
+                _RButton1.SetActive(true);
+                _hand2.gameObject.SetActive(false); 
+                _RButton2.SetActive(false);
+                }
             }        
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 20)
@@ -183,14 +252,24 @@ public class CardLogic : MonoBehaviour
             if (_cardToPlay.transform.parent == _hand1)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(false);
-                _hand2.gameObject.SetActive(true);
+                _RButton1.SetActive(false);
+                _hand2.gameObject.SetActive(true); 
+                _RButton2.SetActive(true);
+                }
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(true);
-                _hand2.gameObject.SetActive(false);
+                _RButton1.SetActive(true);
+                _hand2.gameObject.SetActive(false); 
+                _RButton2.SetActive(false);
+                }
             }            
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 30)
@@ -198,14 +277,24 @@ public class CardLogic : MonoBehaviour
             if (_cardToPlay.transform.parent == _hand1)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(false);
-                _hand2.gameObject.SetActive(true);
+                _RButton1.SetActive(false);
+                _hand2.gameObject.SetActive(true); 
+                _RButton2.SetActive(true);
+                }
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
                 _cardToPlay.transform.parent = _weather;
+                if (_rgo.activeSelf)
+                {
                 _hand1.gameObject.SetActive(true);
-                _hand2.gameObject.SetActive(false);
+                _RButton1.SetActive(true);
+                _hand2.gameObject.SetActive(false); 
+                _RButton2.SetActive(false);
+                }
             }            
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 4)

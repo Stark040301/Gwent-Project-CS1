@@ -523,7 +523,6 @@ GameObject:
   - component: {fileID: 1134383594703071589}
   - component: {fileID: 725230949143825939}
   - component: {fileID: 508395766863068325}
-  - component: {fileID: 891737032957642327}
   m_Layer: 5
   m_Name: Special Card
   m_TagString: Card
@@ -708,23 +707,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f055ef4aebfb183b1a68d56b66dfa0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &891737032957642327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8364075524457801648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebc712f3047040f04b9036c678dd2e2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cardToPlay: {fileID: 8364075524457801648}
-  _weather: {fileID: 0}
-  _melee1: {fileID: 0}
-  _ranged1: {fileID: 0}
-  _siege1: {fileID: 0}
-  _melee2: {fileID: 0}
-  _ranged2: {fileID: 0}
-  _siege2: {fileID: 0}
