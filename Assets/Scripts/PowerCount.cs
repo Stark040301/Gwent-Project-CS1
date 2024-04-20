@@ -12,6 +12,13 @@ public class PowerCount : MonoBehaviour
     public int Player1Power;
     public int Player2Power;
 
+    public static List<Card> _melee1List = new List<Card>();
+    public static List<Card> _melee2List = new List<Card>();
+    public static List<Card> _ranged1List = new List<Card>();
+    public static List<Card> _ranged2List = new List<Card>();
+    public static List<Card> _siege1List = new List<Card>();
+    public static List<Card> _siege2List = new List<Card>();
+
     public TMP_Text CardsinHand1Text;
     public TMP_Text CardsinHand2Text;
     public TMP_Text Player1PowerText;
@@ -23,6 +30,9 @@ public class PowerCount : MonoBehaviour
     public TMP_Text r2totalPowerText;
     public TMP_Text s2totalPowerText;    
 
+    public static Transform _weather;
+    public static Transform _graveyard1;
+    public static Transform _graveyard2;
     public Transform _hand1;
     public Transform _hand2;
     public Transform _melee1;
@@ -47,31 +57,37 @@ public class PowerCount : MonoBehaviour
         for (int i = 0; i < _melee1.childCount; i++)
         {
             m1totalPower += _melee1.GetChild(i).gameObject.GetComponent<DisplayCard>().cardPower;
+            _melee1List.Add(CardDatabase.cardList[_melee1.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
         }
 
         for (int i = 0; i < _ranged1.childCount; i++)
         {
             r1totalPower += _ranged1.GetChild(i).gameObject.GetComponent<DisplayCard>().cardPower;
+            _ranged1List.Add(CardDatabase.cardList[_ranged1.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
         }
 
         for (int i = 0; i < _siege1.childCount; i++)
         {
             s1totalPower += _siege1.GetChild(i).gameObject.GetComponent<DisplayCard>().cardPower;
+            _siege1List.Add(CardDatabase.cardList[_siege1.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
         }
 
         for (int i = 0; i < _melee2.childCount; i++)
         {
             m2totalPower += _melee2.GetChild(i).gameObject.GetComponent<DisplayCard>().cardPower;
+            _melee2List.Add(CardDatabase.cardList[_melee2.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
         }
 
         for (int i = 0; i < _ranged2.childCount; i++)
         {
             r2totalPower += _ranged2.GetChild(i).gameObject.GetComponent<DisplayCard>().cardPower;
+            _ranged2List.Add(CardDatabase.cardList[_ranged2.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
         }
         
         for (int i = 0; i < _siege2.childCount; i++)
         {
             s2totalPower += _siege2.GetChild(i).gameObject.GetComponent<DisplayCard>().cardPower;
+            _siege2List.Add(CardDatabase.cardList[_siege2.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
         }
         Debug.Log("M1 Power: " + m1totalPower);
         Debug.Log("R1 Power: " + r1totalPower);

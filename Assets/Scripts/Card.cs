@@ -8,6 +8,7 @@ public class Card
    //public int cardPowerHero;
    public int id;
    public int cardPower;
+   public int dupCardPower;
    public int cardAttackType;
    public string cardName;
    public string cardDescription;
@@ -29,6 +30,7 @@ public class Card
     id = Id;
     cardName = Name;
     cardPower = Power;
+    dupCardPower = 2 * Power;
     cardAttackType = AttackType;
     cardDescription = Description;
     cardType = Type;
