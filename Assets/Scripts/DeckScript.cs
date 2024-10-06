@@ -53,7 +53,7 @@ public class DeckScript : MonoBehaviour
         else if (DeckSelection._player1Faction == _targaryen)
         {
             _deck1Sprite = Resources.Load<Sprite>("Targaryen Deck");            
-            _leader1Sprite = Resources.Load<Sprite>("Danny");
+            _leader1Sprite = Resources.Load<Sprite>("Dany");
             _faction1Sprite = Resources.Load<Sprite>("Targaryen Sigil");
             _faction1Name.text = "Targaryen";
         }
@@ -100,7 +100,7 @@ public class DeckScript : MonoBehaviour
         else if (DeckSelection._player2Faction == _targaryen)
         {
             _deck2Sprite = Resources.Load<Sprite>("Targaryen Deck");            
-            _leader2Sprite = Resources.Load<Sprite>("Danny");
+            _leader2Sprite = Resources.Load<Sprite>("Dany");
             _faction2Sprite = Resources.Load<Sprite>("Targaryen Sigil");
             _faction2Name.text = "Targaryen";
         }

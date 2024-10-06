@@ -536,7 +536,7 @@ GameObject:
   - component: {fileID: 5466969745516723838}
   m_Layer: 5
   m_Name: SCardInG
-  m_TagString: Card
+  m_TagString: SpecialCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -654,6 +654,7 @@ MonoBehaviour:
   id: 0
   cardPower: 0
   cardAttackType: 0
+  cardType: 
   cardArtwork: {fileID: 0}
   cardAttackIcon: {fileID: 0}
   cardEffectIcon: {fileID: 0}
@@ -673,13 +674,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc712f3047040f04b9036c678dd2e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _decoy1: 0
+  _decoy2: 0
+  _rgo: {fileID: 0}
+  _RButton1: {fileID: 0}
+  _RButton2: {fileID: 0}
   _cardToPlay: {fileID: 8364075524457801648}
+  _m1button: {fileID: 0}
+  _bm1button: {fileID: 0}
+  _r1button: {fileID: 0}
+  _br1button: {fileID: 0}
+  _s1button: {fileID: 0}
+  _bs1button: {fileID: 0}
+  _m2button: {fileID: 0}
+  _bm2button: {fileID: 0}
+  _r2button: {fileID: 0}
+  _br2button: {fileID: 0}
+  _s2button: {fileID: 0}
+  _bs2button: {fileID: 0}
+  _decoyButton: {fileID: 0}
   _hand1: {fileID: 0}
   _hand2: {fileID: 0}
+  _graveyard1: {fileID: 0}
+  _graveyard2: {fileID: 0}
   _weather: {fileID: 0}
   _melee1: {fileID: 0}
+  _mbuff1: {fileID: 0}
   _ranged1: {fileID: 0}
+  _rbuff1: {fileID: 0}
   _siege1: {fileID: 0}
+  _sbuff1: {fileID: 0}
   _melee2: {fileID: 0}
+  _mbuff2: {fileID: 0}
   _ranged2: {fileID: 0}
+  _rbuff2: {fileID: 0}
   _siege2: {fileID: 0}
+  _sbuff2: {fileID: 0}

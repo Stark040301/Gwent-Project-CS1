@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DeckSelection : MonoBehaviour
 {
+    public GameObject _p1Text;
+    public GameObject _p2Text;
+    public GameObject _p2Button;
+    public GameObject _startButton;
     public GameObject _factionNorth;
     public GameObject _factionCrown;
     public GameObject _factionTargaryen;
@@ -16,7 +21,11 @@ public class DeckSelection : MonoBehaviour
     public static bool _player1Deck = true;
     public GameObject _card;
     public Transform _deck;
-    public Transform _collection;
+    public Transform _collection;   
+    void Update()
+    {
+        
+    }
     public void SendToDeck()
     {
      if (_card.transform.parent == _collection)
@@ -50,6 +59,17 @@ public class DeckSelection : MonoBehaviour
     }
     public void SendAllToCollection()
     {
+        if (DeckScript.deck1.Count >= 25)
+        {
+            List<Transform> deckChildren = GetChildren(_deck);
+            foreach (Transform child in deckChildren)
+            {
+                child.transform.parent = _collection;
+            }
+        }
+    }
+    public void NSendAllToCollection()
+    {
         List<Transform> deckChildren = GetChildren(_deck);
         foreach (Transform child in deckChildren)
         {
@@ -71,63 +91,72 @@ public class DeckSelection : MonoBehaviour
     }    
     public void player2()
     {
-        _player1Deck = false;
+        if (DeckScript.deck1.Count >= 25)
+        {
+        _player1Deck = false;   
+        }
     }
     public void P1SelectFaction()
     {
-        if (_factionNorth.activeSelf)
+        if (DeckScript.deck1.Count >= 25)
         {
-            _player1Faction = "The North";
+            if (_factionNorth.activeSelf)
+            {
+                _player1Faction = "The North";
+            }
+            else if (_factionCrown.activeSelf)
+            {
+                _player1Faction = "The Crown";
+            }
+            else if (_factionTargaryen.activeSelf)
+            {
+                _player1Faction = "Targaryen";
+            }
+            else if (_factionGreyjoy.activeSelf)
+            {
+                _player1Faction = "Greyjoy";
+            }
+            else if (_factionWatch.activeSelf)
+            {
+                _player1Faction = "Watch";
+            }
+            else if (_factionBaratheon.activeSelf)
+            {
+                _player1Faction = "Baratheon";
+            }
+            Debug.Log(_player1Faction);   
         }
-        else if (_factionCrown.activeSelf)
-        {
-            _player1Faction = "The Crown";
-        }
-        else if (_factionTargaryen.activeSelf)
-        {
-            _player1Faction = "Targaryen";
-        }
-        else if (_factionGreyjoy.activeSelf)
-        {
-            _player1Faction = "Greyjoy";
-        }
-        else if (_factionWatch.activeSelf)
-        {
-            _player1Faction = "Watch";
-        }
-        else if (_factionBaratheon.activeSelf)
-        {
-            _player1Faction = "Baratheon";
-        }
-        Debug.Log(_player1Faction);
     }
     public void P2SelectFaction()
     {
-        if (_factionNorth.activeSelf)
+        if (DeckScript.deck2.Count >= 25)
         {
-            _player2Faction = "The North";
+            if (_factionNorth.activeSelf)
+            {
+                _player2Faction = "The North";
+            }
+            else if (_factionCrown.activeSelf)
+            {
+                _player2Faction = "The Crown";
+            }
+            else if (_factionTargaryen.activeSelf)
+            {
+                _player2Faction = "Targaryen";
+            }
+            else if (_factionGreyjoy.activeSelf)
+            {
+                _player2Faction = "Greyjoy";
+            }
+            else if (_factionWatch.activeSelf)
+            {
+                _player2Faction = "Watch";
+            }
+            else if (_factionBaratheon.activeSelf)
+            {
+                _player2Faction = "Baratheon";
+            }
+            Debug.Log(_player2Faction);        
         }
-        else if (_factionCrown.activeSelf)
-        {
-            _player2Faction = "The Crown";
-        }
-        else if (_factionTargaryen.activeSelf)
-        {
-            _player2Faction = "Targaryen";
-        }
-        else if (_factionGreyjoy.activeSelf)
-        {
-            _player2Faction = "Greyjoy";
-        }
-        else if (_factionWatch.activeSelf)
-        {
-            _player2Faction = "Watch";
-        }
-        else if (_factionBaratheon.activeSelf)
-        {
-            _player2Faction = "Baratheon";
-        }
-        Debug.Log(_player2Faction);
     }
     List<Transform> GetChildren(Transform parent)
     {
@@ -138,5 +167,22 @@ public class DeckSelection : MonoBehaviour
             children.Add(child);
         }
         return children;
+    }
+    public void ActivateStuff()
+    {
+        if (DeckScript.deck1.Count >= 25)
+        {
+            _p1Text.SetActive(false);
+            _p2Text.SetActive(true);
+            _p2Button.SetActive(false);
+            _startButton.SetActive(true);
+        }
+    }
+    public void StartGame()
+    {
+        if (DeckScript.deck2.Count >= 25)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

@@ -30,9 +30,6 @@ public class PowerCount : MonoBehaviour
     public TMP_Text r2totalPowerText;
     public TMP_Text s2totalPowerText;    
 
-    public static Transform _weather;
-    public static Transform _graveyard1;
-    public static Transform _graveyard2;
     public Transform _hand1;
     public Transform _hand2;
     public Transform _melee1;

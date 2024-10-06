@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class CardLogic : MonoBehaviour
 {
-    //public static GameObject cardToButton;
+    public static List<GameObject> doecoyBList = new List<GameObject>();
+    public static List<GameObject> specialCList = new List<GameObject>();
+    public static List<Card> _hand1List = new List<Card>();
+    public static List<Card> _hand2List = new List<Card>();
+    public bool _decoy1;
+    public bool _decoy2;
     public static GameObject cardToButton;
+    //public GameObject _decoyCard;
     public GameObject _rgo;
     public GameObject _RButton1;
     public GameObject _RButton2;
@@ -22,6 +29,7 @@ public class CardLogic : MonoBehaviour
     public GameObject _br2button;
     public GameObject _s2button;
     public GameObject _bs2button;
+    public GameObject _decoyButton;
     public Transform _hand1;
     public Transform _hand2;
     public Transform _graveyard1;
@@ -43,6 +51,8 @@ public class CardLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        doecoyBList = GameObject.FindGameObjectsWithTag("DecoyB").ToList();
+        specialCList = GameObject.FindGameObjectsWithTag("SpecialCard").ToList();
         _rgo = GameObject.Find("RGO");
         _hand1 = GameObject.Find("Hand1").transform;
         _hand2 = GameObject.Find("Hand2").transform;
@@ -79,6 +89,15 @@ public class CardLogic : MonoBehaviour
 
     void Update()
     {
+        /*for (int i = 0; i < _hand1.childCount; i++)
+        {
+            _hand1List.Add(CardDatabase.cardList[_hand1.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
+        }
+        for (int i = 0; i < _hand2.childCount; i++)
+        {
+            _hand2List.Add(CardDatabase.cardList[_hand2.GetChild(i).gameObject.GetComponent<DisplayCard>().id]);
+        }*/
+
         if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 10)
         {
             if (_cardToPlay.transform.parent == _weather)
@@ -86,6 +105,7 @@ public class CardLogic : MonoBehaviour
                 CardEffects.Blizzard();
             }
         }
+
         if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 20)
         {
             if (_cardToPlay.transform.parent == _weather)
@@ -131,9 +151,12 @@ public class CardLogic : MonoBehaviour
         {
             if (_cardToPlay.transform.parent == _weather)
             {
-                for (int i = 0; i < _weather.childCount; i++)
+                for (int j = 0; j < 3; j++)
                 {
-                    _weather.GetChild(i).parent = _graveyard1;
+                    for (int i = 0; i < _weather.childCount; i++)
+                    {
+                        _weather.GetChild(i).parent = _graveyard1;
+                    }
                 }
             }
         }
@@ -247,15 +270,71 @@ public class CardLogic : MonoBehaviour
         {
             if (_cardToPlay.transform.parent == _hand1)
             {
-                _m1button.SetActive(true);
-                _r1button.SetActive(true);
-                _s1button.SetActive(true);
+                Debug.Log("Decoy en Mano");
+                for (int i = 0; i < _melee1.childCount; i++)
+                {
+                    if (_melee1.GetChild(i).gameObject.GetComponent<DisplayCard>().cardType == "Plata")
+                    {
+                        for (int j = 0; j < _melee1.GetChild(i).childCount; j++)
+                        {
+                            _melee1.GetChild(i).GetChild(j).gameObject.SetActive(true);
+                        }
+                    }
+                }
+                for (int i = 0; i < _ranged1.childCount; i++)
+                {
+                    if (_ranged1.GetChild(i).gameObject.GetComponent<DisplayCard>().cardType == "Plata")
+                    {
+                        for (int j = 0; j < _ranged1.GetChild(i).childCount; j++)
+                        {
+                            _ranged1.GetChild(i).GetChild(j).gameObject.SetActive(true);
+                        }
+                    }
+                }
+                for (int i = 0; i < _siege1.childCount; i++)
+                {
+                    if (_siege1.GetChild(i).gameObject.GetComponent<DisplayCard>().cardType == "Plata")
+                    {
+                        for (int j = 0; j < _siege1.GetChild(i).childCount; j++)
+                        {
+                            _siege1.GetChild(i).GetChild(j).gameObject.SetActive(true);
+                        }
+                    }
+                }
             }
             else if (_cardToPlay.transform.parent == _hand2)
             {
-                _m2button.SetActive(true);
-                _r2button.SetActive(true);
-                _s2button.SetActive(true);
+                Debug.Log("Decoy en Mano2");
+                for (int i = 0; i < _melee2.childCount; i++)
+                {
+                    if (_melee2.GetChild(i).gameObject.GetComponent<DisplayCard>().cardType == "Plata")
+                    {
+                        for (int j = 0; j < _melee2.GetChild(i).childCount; j++)
+                        {
+                            _melee2.GetChild(i).GetChild(j).gameObject.SetActive(true);
+                        }
+                    }
+                }
+                for (int i = 0; i < _ranged2.childCount; i++)
+                {
+                    if (_ranged2.GetChild(i).gameObject.GetComponent<DisplayCard>().cardType == "Plata")
+                    {
+                        for (int j = 0; j < _ranged2.GetChild(i).childCount; j++)
+                        {
+                            _ranged2.GetChild(i).GetChild(j).gameObject.SetActive(true);
+                        }
+                    }
+                }
+                for (int i = 0; i < _siege2.childCount; i++)
+                {
+                    if (_siege2.GetChild(i).gameObject.GetComponent<DisplayCard>().cardType == "Plata")
+                    {
+                        for (int j = 0; j < _siege2.GetChild(i).childCount; j++)
+                        {
+                            _siege2.GetChild(i).GetChild(j).gameObject.SetActive(true);
+                        }
+                    }
+                }
             }
         }
         else if (_cardToPlay.GetComponent<DisplayCard>().cardAttackType == 0)
@@ -380,4 +459,45 @@ public class CardLogic : MonoBehaviour
             }
         }
     }
+
+    public void SendToHand()
+    {
+        if (_cardToPlay.transform.parent == _melee1 | _cardToPlay.transform.parent == _ranged1 | _cardToPlay.transform.parent == _siege1)
+        {
+            foreach (GameObject sCard in specialCList)
+            {
+                if (sCard.GetComponent<DisplayCard>().cardAttackType == 123 & sCard.transform.parent == _hand1)
+                {
+                    sCard.transform.parent = _cardToPlay.transform.parent;
+                }
+            }
+            _cardToPlay.transform.parent = _hand1;
+        }
+        else if (_cardToPlay.transform.parent == _melee2 | _cardToPlay.transform.parent == _ranged2 | _cardToPlay.transform.parent == _siege2)
+        {
+            int scards = 0;
+            foreach (GameObject sCard in specialCList)
+            {
+                scards++;
+                if (sCard.GetComponent<DisplayCard>().cardAttackType == 123 & sCard.transform.parent == _hand2)
+                {
+                    Debug.Log("Decoy Detected");
+                    sCard.transform.parent = _cardToPlay.transform.parent;
+                }
+            }
+            Debug.Log("Special Cards: " + scards);
+            _cardToPlay.transform.parent = _hand2;
+        }
+        foreach (GameObject decB in doecoyBList)
+        {
+            decB.SetActive(false);
+        }
+    }
+
+    /*public void SaveDecoy()
+    {
+        
+        _decoyCard = _cardToPlay;
+    }*/
+
 }

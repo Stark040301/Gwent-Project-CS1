@@ -13,6 +13,8 @@ public class DisplayCard : MonoBehaviour
     public int id;
     public int cardPower;
     public int cardAttackType;
+    public string cardType;
+    public string effectName;
 
    public Sprite cardArtwork;
    public Sprite cardAttackIcon;
@@ -36,6 +38,8 @@ public class DisplayCard : MonoBehaviour
         cardArtwork = displayCard[0].cardArtwork;
         cardAttackIcon = displayCard[0].cardAttackIcon;
         cardEffectIcon = displayCard[0].cardEffectIcon;
+        cardType = displayCard[0].cardType;
+        effectName = displayCard[0].effectName;
 
         cardPowerText.text = " " + cardPower;
         

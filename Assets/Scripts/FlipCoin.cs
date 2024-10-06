@@ -109,5 +109,9 @@ public class FlipCoin : MonoBehaviour
         _s2button.SetActive(false);
         _bs2button.SetActive(false);
         _background.SetActive(false);
+        foreach (GameObject decB in CardLogic.doecoyBList)
+        {
+            decB.SetActive(false);
+        } 
     }
 }
